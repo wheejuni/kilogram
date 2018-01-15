@@ -123,3 +123,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 #Django Auth
 LOGIN_REDIRECT_URL = '/kilogram'
+
+#media
+MEDIA_URL = '/files/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
