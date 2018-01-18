@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
@@ -8,6 +9,7 @@ from django.views.generic.base import TemplateView
 from kilogram.forms import CreateUserForm, UploadForm
 
 
+@login_required
 def upload(request):
     if request.method == "POST":
         form = UploadForm(request.POST, request.FILES)
@@ -18,8 +20,6 @@ def upload(request):
             form.save()
             return redirect('kilogram:index')
 
-    if (isinstance(request.user, User) == False):
-        return redirect('/accounts/login')
 
     form = UploadForm()
     return render(request, 'kilogram/upload.html', {'form' : form})
