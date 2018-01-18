@@ -4,7 +4,13 @@ from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
 # Create your views here.
-from kilogram.forms import CreateUserForm
+from kilogram.forms import CreateUserForm, UploadForm
+
+
+def upload(request):
+    form = UploadForm()
+    return render(request, 'kilogram/upload.html', {'form' : form})
+
 
 
 class IndexView(TemplateView):
@@ -18,5 +24,6 @@ class CreateUserView(CreateView):
 
 class RegistrationCompletedView(TemplateView):
     template_name = 'registration/signup_done.html'
+
 
 
