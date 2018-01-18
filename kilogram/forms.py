@@ -19,6 +19,7 @@ class CreateUserForm(UserCreationForm):
             user.save()
         return user
 
+
 class UploadForm(forms.ModelForm):
     comment = forms.CharField(max_length=255)
 
