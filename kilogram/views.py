@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
 # Create your views here.
@@ -26,8 +26,15 @@ def upload(request):
 
 
 
-class IndexView(TemplateView):
-    template_name = 'kilogram/index.html'
+class IndexView(ListView):
+    # model = Photo
+
+    context_object_name = 'user_photo_list'
+    paginate_by = 1
+
+    def get_queryset(self):
+        user = self.request.user
+        return user.photo_set.all().order_by('-pub_date')
 
 class CreateUserView(CreateView):
     template_name = 'registration/signup.html'
