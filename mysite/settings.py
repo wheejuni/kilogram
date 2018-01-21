@@ -33,12 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'kilogram',
 
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-
-
+    'social_django',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -77,9 +72,7 @@ TEMPLATES = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
