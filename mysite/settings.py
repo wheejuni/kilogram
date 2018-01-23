@@ -71,9 +71,6 @@ TEMPLATES = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-)
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
@@ -137,26 +134,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 SITE_ID = 1
 
-SOCIALACCOUNT_PROVIDERS = {
-    'facebook': {
-        'METHOD': 'oauth2',
-        'SCOPE': ['email', 'public_profile', 'user_friends'],
-        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-        'INIT_PARAMS': {'cookie': True},
-        'FIELDS': [
-            'id',
-            'email',
-            'name',
-            'first_name',
-            'last_name',
-            'friends',
-            'verified',
-        ],
-        'EXCHANGE_TOKEN': True,
-        'LOCALE_FUNC': lambda request: 'ko_KR',
-        'VERIFIED_EMAIL': False,
-        'VERSION': 'v2.9',
-    }
-}
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

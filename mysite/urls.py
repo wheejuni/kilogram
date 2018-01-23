@@ -25,7 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', login_required(kilogram_views.IndexView.as_view()), name='root'),
     url(r'^kilogram/', include('kilogram.urls')),
-    url(r'^accounts/', include('allauth.urls')),
 
 ]
 
