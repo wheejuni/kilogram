@@ -2,4 +2,4 @@
 *.idea
 *.pyc
 uploads/*
-
+kilogram/migrations/*

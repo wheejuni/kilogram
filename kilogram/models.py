@@ -15,6 +15,7 @@ def user_path(instance, filename):
 
 class Photo(models.Model):
     image = models.ImageField()
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     thumbnail_image = models.ImageField(blank=True)
     comment = models.CharField(max_length=255)
     pub_date = models.DateTimeField(auto_now_add=True)

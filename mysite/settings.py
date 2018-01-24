@@ -111,7 +111,7 @@ INSTALLED_APPS = [
 
 # Authentication
 AUTHENTICATION_BACKENDS = [
-    'social_core.backendds.facebook.FacebookOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
 
     'django.contrib.auth.backends.ModelBackend'
 ]
@@ -183,6 +183,6 @@ LOGIN_REDIRECT_URL = '/kilogram'
 MEDIA_URL = '/files/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
-
+SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
