@@ -14,6 +14,6 @@ class ProfileInline(admin.StackedInline):
     can_delete = False
 
 class CustomUserAdmin(UserAdmin):
-    inlines = (ProfileInline)
+    inlines = (ProfileInline,)
 
 admin.site.register(User, CustomUserAdmin)
